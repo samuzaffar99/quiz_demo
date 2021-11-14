@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_demo/pages/quiz.dart';
 
 import 'routes.dart' as route;
 
@@ -18,14 +19,7 @@ class _WidgetsDemoState extends State<WidgetsDemo> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      // https://flutter.dev/docs/cookbook/design/drawer
-      drawer: Drawer(
+  Widget get _drawer => Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -51,7 +45,16 @@ class _WidgetsDemoState extends State<WidgetsDemo> {
             ),
           ],
         ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
       ),
+      // https://flutter.dev/docs/cookbook/design/drawer
+      drawer: _drawer,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +76,9 @@ class _WidgetsDemoState extends State<WidgetsDemo> {
               child: const Text("Navigate to Second Page"),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, route.registerPage),
+              // onPressed: () => Navigator.pushNamed(context, route.registerPage),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const QuizPage(0))),
               child: const Text("Start Quiz"),
             ),
           ],
@@ -90,7 +95,10 @@ class _WidgetsDemoState extends State<WidgetsDemo> {
 
 class SecondPage extends StatelessWidget {
   const SecondPage({Key? key}) : super(key: key);
-
+  static const List<Tab> myTabs = <Tab>[
+    Tab(text: 'LEFT'),
+    Tab(text: 'RIGHT'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,6 +110,31 @@ class SecondPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Expanded(
+              child: DefaultTabController(
+                length: myTabs.length,
+                child: Column(
+                  children: [
+                    const TabBar(
+                      tabs: myTabs,
+                    ),
+                    Expanded(
+                      child: TabBarView(
+                        children: myTabs.map((Tab tab) {
+                          final String label = tab.text!.toLowerCase();
+                          return Center(
+                            child: Text(
+                              'This is the $label tab',
+                              style: const TextStyle(fontSize: 36),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             const Text("Second Page"),
             ElevatedButton(
               onPressed: () => Navigator.pop(context),

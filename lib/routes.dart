@@ -13,7 +13,7 @@ const String registerPage = 'register';
 Route<dynamic> controller(RouteSettings settings) {
   switch (settings.name) {
     case quizPage:
-      return MaterialPageRoute(builder: (context) => const QuizPage());
+      return MaterialPageRoute(builder: (context) => const QuizPage(0));
     // case homePage:
     //   return MaterialPageRoute(builder: (context) => HomePage());
     // case registerPage:
