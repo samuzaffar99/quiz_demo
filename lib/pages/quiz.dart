@@ -13,26 +13,32 @@ class QuizPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Question # ${index + 1}"),
       ),
-      body: Column(
-        children: [
-          Text(quizData[index]["question"]),
-          Expanded(child: Solutions(index: index)),
-          (index + 1 < quizData.length)
-              ? ElevatedButton(
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => QuizPage(index + 1))),
-                  child: const Text("Continue"),
-                )
-              : ElevatedButton(
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ResultPage())),
-                  child: const Text("Submit"),
-                )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Column(
+          children: [
+            Text(
+              quizData[index]["question"],
+              textScaleFactor: 2,
+            ),
+            Expanded(child: Solutions(index: index)),
+            (index + 1 < quizData.length)
+                ? ElevatedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => QuizPage(index + 1))),
+                    child: const Text("Continue"),
+                  )
+                : ElevatedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ResultPage())),
+                    child: const Text("Submit"),
+                  )
+          ],
+        ),
       ),
     );
   }
@@ -54,22 +60,16 @@ class _SolutionsState extends State<Solutions> {
     return ListView.builder(
       itemCount: quizData[widget.index]["solutions"].length,
       itemBuilder: (context, i) {
-        return Row(
-          children: [
-            Text(quizData[widget.index]["solutions"][i].toString()),
-            Flexible(
-              child: RadioListTile(
-                value: i,
-                groupValue: selectedIndex,
-                onChanged: (_) {
-                  print(i);
-                  setState(() {
-                    selectedIndex = i;
-                  });
-                },
-              ),
-            ),
-          ],
+        return RadioListTile(
+          title: Text(quizData[widget.index]["solutions"][i].toString()),
+          value: i,
+          groupValue: selectedIndex,
+          onChanged: (_) {
+            print(i);
+            setState(() {
+              selectedIndex = i;
+            });
+          },
         );
       },
     );

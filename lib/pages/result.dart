@@ -42,8 +42,11 @@ class ResultPage extends StatelessWidget {
               child: const Text("Retake Quiz"),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage())),
+              onPressed: () => Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage()),
+                (Route<dynamic> route) => false,
+              ),
               child: const Text("Goto Home"),
             )
           ],

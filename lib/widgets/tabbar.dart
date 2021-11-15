@@ -15,9 +15,8 @@ class TabBarDemo extends StatelessWidget {
       length: myTabs.length,
       child: Scaffold(
         appBar: AppBar(
-          bottom: const TabBar(
-            tabs: myTabs,
-          ),
+          title: const Text("TabBar Demo"),
+          bottom: const TabBar(tabs: myTabs),
         ),
         body: TabBarView(
           children: myTabs.map((Tab tab) {
