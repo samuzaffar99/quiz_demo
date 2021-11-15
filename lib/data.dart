@@ -17,6 +17,8 @@ const List<Map<String, dynamic>> quizData = [
   {
     "question": "What is 6/2?",
     "solutions": [0, 3, 23, 1],
-    "index": 2
+    "index": 1
   }
 ];
+
+List<int> ans = List.filled(quizData.length, 0);

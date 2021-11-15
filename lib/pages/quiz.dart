@@ -53,8 +53,6 @@ class Solutions extends StatefulWidget {
 }
 
 class _SolutionsState extends State<Solutions> {
-  int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -63,11 +61,11 @@ class _SolutionsState extends State<Solutions> {
         return RadioListTile(
           title: Text(quizData[widget.index]["solutions"][i].toString()),
           value: i,
-          groupValue: selectedIndex,
+          groupValue: ans[widget.index],
           onChanged: (_) {
             print(i);
             setState(() {
-              selectedIndex = i;
+              ans[widget.index] = i;
             });
           },
         );

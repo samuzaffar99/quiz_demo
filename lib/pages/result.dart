@@ -9,6 +9,13 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _score = 0;
+    quizData.asMap().forEach((i, quest) {
+      if (quest["index"] == ans[i]) {
+        _score++;
+      }
+    });
+    // ans = List.filled(quizData.length, 0);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Results"),
@@ -17,6 +24,7 @@ class ResultPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            Text("Score: $_score"),
             ListView.separated(
                 shrinkWrap: true,
                 itemCount: quizData.length,
