@@ -17,7 +17,7 @@ class QuizPage extends StatelessWidget {
         children: [
           Text(quizData[index]["question"]),
           Expanded(child: Solutions(index: index)),
-          (index +1< quizData.length)
+          (index + 1 < quizData.length)
               ? ElevatedButton(
                   onPressed: () => Navigator.push(
                       context,

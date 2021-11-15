@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_demo/home.dart';
 import 'package:quiz_demo/pages/quiz.dart';
-import 'package:quiz_demo/widgets.dart';
 
 import '../data.dart';
 
@@ -43,7 +43,7 @@ class ResultPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const WidgetsDemo())),
+                  MaterialPageRoute(builder: (context) => const HomePage())),
               child: const Text("Goto Home"),
             )
           ],

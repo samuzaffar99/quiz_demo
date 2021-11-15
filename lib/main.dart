@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'routes.dart' as route;
-import 'widgets.dart';
+import 'package:quiz_demo/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,10 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const WidgetsDemo(),
-      // onGenerateRoute: route.controller,
-      // initialRoute: '/',
+      home: const HomePage(),
     );
   }
 }
-
