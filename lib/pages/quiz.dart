@@ -17,24 +17,22 @@ class QuizPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
           children: [
+            // TODO Display Question
             Text(
-              quizData[index]["question"],
+              "THE QUESTION",
               textScaleFactor: 2,
             ),
-            Expanded(child: Solutions(index: index)),
+            // TODO Replace Center with appropriate widget
+            Center(child: Solutions(index: index)),
             (index + 1 < quizData.length)
                 ? ElevatedButton(
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => QuizPage(index + 1))),
+                    // TODO Navigate to next question
+                    onPressed: () => null,
                     child: const Text("Continue"),
                   )
                 : ElevatedButton(
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ResultPage())),
+                    // TODO Show results page
+                    onPressed: () => null,
                     child: const Text("Submit"),
                   )
           ],

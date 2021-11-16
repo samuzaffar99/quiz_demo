@@ -18,18 +18,21 @@ class TabBarDemo extends StatelessWidget {
           title: const Text("TabBar Demo"),
           bottom: const TabBar(tabs: myTabs),
         ),
-        body: TabBarView(
-          children: myTabs.map((Tab tab) {
-            final String label = tab.text!.toLowerCase();
-            return Center(
-              child: Text(
-                'This is the $label tab',
-                style: const TextStyle(fontSize: 36),
-              ),
-            );
-          }).toList(),
-        ),
+        //TODO Replace Center with TabBarView
+        body: Center(),
       ),
     );
   }
 }
+
+// TabBarView(
+// children: myTabs.map((Tab tab) {
+// final String label = tab.text!.toLowerCase();
+// return Center(
+// child: Text(
+// 'This is the $label tab',
+// style: const TextStyle(fontSize: 36),
+// ),
+// );
+// }).toList(),
+// ),

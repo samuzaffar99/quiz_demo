@@ -10,10 +10,7 @@ class NavDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Second Page"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Navigation Demo")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -23,12 +20,14 @@ class NavDemo extends StatelessWidget {
               onPressed: () => Navigator.pop(context, getRoute()),
               child: const Text("pop"),
             ),
-            ElevatedButton(
-              onPressed: () => Navigator.push(context, getRoute()),
+            OutlinedButton(
+              // TODO add push navigation, same as above
+              onPressed: () => null,
               child: const Text("push"),
             ),
-            ElevatedButton(
-              onPressed: () => Navigator.pushReplacement(context, getRoute()),
+            OutlinedButton(
+              // TODO add pushReplacement navigation, same as above
+              onPressed: () => null,
               child: const Text("pushReplacement"),
             ),
             ElevatedButton(
@@ -36,9 +35,9 @@ class NavDemo extends StatelessWidget {
                   Navigator.popUntil(context, ModalRoute.withName('/')),
               child: const Text("popUntil"),
             ),
-            ElevatedButton(
-              onPressed: () => Navigator.pushAndRemoveUntil(
-                  context, getRoute(), ModalRoute.withName('/')),
+            OutlinedButton(
+              // TODO add pushAndRemoveUntil navigation, use above condition
+              onPressed: () => null,
               child: const Text("pushAndRemoveUntil"),
             ),
           ],

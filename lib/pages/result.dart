@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_demo/home.dart';
 import 'package:quiz_demo/pages/quiz.dart';
 
 import '../data.dart';
@@ -15,7 +14,6 @@ class ResultPage extends StatelessWidget {
         _score++;
       }
     });
-    // ans = List.filled(quizData.length, 0);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Results"),
@@ -24,7 +22,8 @@ class ResultPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text("Score: $_score"),
+            // TODO Show score
+            Text("Score: ???"),
             ListView.separated(
                 shrinkWrap: true,
                 itemCount: quizData.length,
@@ -45,16 +44,13 @@ class ResultPage extends StatelessWidget {
                   );
                 }),
             ElevatedButton(
-              onPressed: () => Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const QuizPage(0))),
+              // TODO Navigate to new quiz
+              onPressed: () => null,
               child: const Text("Retake Quiz"),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
-                (Route<dynamic> route) => false,
-              ),
+              // TODO Navigate back to Home
+              onPressed: () => null,
               child: const Text("Goto Home"),
             )
           ],

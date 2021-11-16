@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 // https://flutter.dev/docs/cookbook/design/drawer
 class DrawerDemo extends StatelessWidget {
   const DrawerDemo({Key? key}) : super(key: key);
-  final title = "Widgets Demo";
 
   Widget get _drawer => Drawer(
         child: ListView(
@@ -25,7 +24,8 @@ class DrawerDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Drawer Demo")),
-      drawer: _drawer,
+      //Todo add drawer
+      drawer: null,
     );
   }
 }

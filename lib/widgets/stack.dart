@@ -13,6 +13,8 @@ class StackDemo extends StatelessWidget {
           Align(
               alignment: Alignment.centerLeft, child: Text("Align CenterLeft")),
           Positioned(top: 360, left: 320, child: Text("Positioned")),
+          // TODO Add a Widget to the bottomLeft via align
+          // TODO Add a Widget to the topRight via positioned
         ],
       ),
     );
