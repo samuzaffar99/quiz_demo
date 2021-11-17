@@ -7,14 +7,31 @@ class StackDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Stack Demo")),
-      body: Stack(
-        children: const [
-          Align(alignment: Alignment.topCenter, child: Text("Align TopCenter")),
-          Align(
-              alignment: Alignment.centerLeft, child: Text("Align CenterLeft")),
-          Positioned(top: 360, left: 320, child: Text("Positioned")),
-        ],
+      body: Center(
+        child: loadingWidget(80),
       ),
+    );
+  }
+
+  Stack loadingWidget(int percentage) {
+    return Stack(
+      alignment: Alignment.centerLeft,
+      children: [
+        Container(
+          color: Colors.grey[400],
+          width: 300,
+          height: 20,
+        ),
+        Container(
+          color: Colors.red,
+          width: 300 * percentage / 100,
+          height: 20,
+        )
+        // Align(alignment: Alignment.topCenter, child: Text("Align TopCenter")),
+        // Align(
+        //     alignment: Alignment.centerLeft, child: Text("Align CenterLeft")),
+        // Positioned(top: 360, left: 320, child: Text("Positioned")),
+      ],
     );
   }
 }
